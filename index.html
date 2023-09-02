@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Leaning how to build a simple calculator using web development">
+    <meta name="author" content="Lucas DEV">
+    <title>Calculor | Lucas DEV</title> 
+</head>
+<body>
+    <div>
+        <h1>Tips Calculator</h1>
+    </div>
+    <div>
+        <form>
+            <label for="bill">
+                <p>How much was the bill?</p>
+            </label>
+            <p>
+              R$ <input type="number" placeholder="100.00" name="bill" id="bill">
+            </p>
+            <label for="serviceQuality">
+                <p>How was the service?</p>
+            </label>
+            <select name="serviceQuality" id="serviceQuality">
+                <option disable selected value="0">-- Choose an option --</option>
+                <option value="0.3">30% - Amazing</option>
+                <option value="0.2">20% - Good</option>
+                <option value="0.15">15% - Regular</option>
+                <option value="0.1">10% - Bad</option>
+                <option value="0.05">05% - Terrible</option>
+            </select>
+            <label for="people">
+                <p>How many people will  pay the bill?</p>
+            </label>
+            <p>
+                <input type="number" placeholder="1" name="people" id="people"> pessoa(s)
+            </p>
+            <button type="submit">Calculate</button>
+        </form>
+    </div>
+    
+</body>
+</html>
