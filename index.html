@@ -5,40 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Leaning how to build a simple calculator using web development">
     <meta name="author" content="Lucas DEV">
-    <title>Calculor | Lucas DEV</title> 
+    <title>Calculor | Lucas DEV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: lightcoral;
+            --secondary-color: DimGrey;
+            --tertiary-color: Gainsboro;
+        }
+        body {
+            background-color: var(--primary-color);
+            font-size: 15px;
+            font-family: 'Lato', sans-serif;
+        }
+        #container {
+            height: 525px;
+            width: 360px;
+            margin: 100px auto;
+            background: #f7f7f7;
+            /*box-shadow: 5px 5px 5px var(--tertiary-color);*/
+            border-radius: 20px;
+        }
+        .title {
+            background: var(--tertiary-color);
+            color: var(--secondary-color);
+            padding: 20px;
+            text-transform: uppercase;
+            font-size: 18px;
+            font-weight: normal;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            text-align: center;
+        }
+        .tipsForm {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .formInput {
+            background: white;
+            width: 40px;
+            padding: 5px 5px 8px 8px;
+        }
+        .formInput:focus {
+            border: 3px solid var(--primary-color);
+            outline: none;
+        }
+        .formSelect {
+            width: 180px;
+            padding: 5px;
+            font-size: 12px;
+        }
+        .formSubmit {
+            text-transform: uppercase;
+            font-weight: bold;
+            display: block;
+            margin: 30px auto;
+            background: var(--primary-color);
+            border-radius: 5px;
+            width: 200px;
+            height: 50px;
+            font-size: 17px;
+            color: white;
+        }
+    </style> 
 </head>
 <body>
-    <div>
-        <h1>Tips Calculator</h1>
+    <div id="container">
+        <div>
+            <h1 class="title">Tips Calculator</h1>
+        </div>
+        <div>
+            <form class="tipsForm">
+                <label for="bill">
+                    <p>How much was the bill?</p>
+                </label>
+                <p>
+                    $ <input type="number" placeholder="100.00" name="bill" id="bill" class="formInput">
+                </p>
+                <label for="serviceQuality">
+                    <p>How was the service?</p>
+                </label>
+                <select name="serviceQuality" id="serviceQuality" class="formSelect">
+                    <option disable selected value="0">-- Choose an option --</option>
+                    <option value="0.3">30% - Amazing</option>
+                    <option value="0.2">20% - Good</option>
+                    <option value="0.15">15% - Regular</option>
+                    <option value="0.1">10% - Bad</option>
+                    <option value="0.05">05% - Terrible</option>
+                </select>
+                <label for="people">
+                    <p>How many people will  pay the bill?</p>
+                </label>
+                <p>
+                    <input type="number" placeholder="1" name="people" id="people"> person/people
+                </p>
+                <button type="submit" class="formSubmit">Calculate</button>
+            </form>
+        </div>
     </div>
-    <div>
-        <form>
-            <label for="bill">
-                <p>How much was the bill?</p>
-            </label>
-            <p>
-              R$ <input type="number" placeholder="100.00" name="bill" id="bill">
-            </p>
-            <label for="serviceQuality">
-                <p>How was the service?</p>
-            </label>
-            <select name="serviceQuality" id="serviceQuality">
-                <option disable selected value="0">-- Choose an option --</option>
-                <option value="0.3">30% - Amazing</option>
-                <option value="0.2">20% - Good</option>
-                <option value="0.15">15% - Regular</option>
-                <option value="0.1">10% - Bad</option>
-                <option value="0.05">05% - Terrible</option>
-            </select>
-            <label for="people">
-                <p>How many people will  pay the bill?</p>
-            </label>
-            <p>
-                <input type="number" placeholder="1" name="people" id="people"> pessoa(s)
-            </p>
-            <button type="submit">Calculate</button>
-        </form>
-    </div>
-    
 </body>
 </html>
