@@ -69,6 +69,11 @@
             font-size: 17px;
             color: white;
         }
+        #totalTip {
+            font-size: 20px;
+            margin-top: 5px;
+            text-align: center;
+        }
     </style> 
 </head>
 <body>
@@ -77,17 +82,17 @@
             <h1 class="title">Tips Calculator</h1>
         </div>
         <div>
-            <form class="tipsForm">
+            <form class="tipsForm" id="tipsForm">
                 <label for="bill">
                     <p>How much was the bill?</p>
                 </label>
                 <p>
-                    $ <input type="number" placeholder="100.00" name="bill" id="bill" class="formInput">
+                    $ <input type="number" placeholder="100.00" name="bill" id="bill" class="formInput" required>
                 </p>
                 <label for="serviceQuality">
                     <p>How was the service?</p>
                 </label>
-                <select name="serviceQuality" id="serviceQuality" class="formSelect">
+                <select name="serviceQuality" id="serviceQuality" class="formSelect" required>
                     <option disable selected value="0">-- Choose an option --</option>
                     <option value="0.3">30% - Amazing</option>
                     <option value="0.2">20% - Good</option>
@@ -99,11 +104,46 @@
                     <p>How many people will  pay the bill?</p>
                 </label>
                 <p>
-                    <input type="number" placeholder="1" name="people" id="people"> person/people
+                    <input type="number" placeholder="1" name="people" id="people" required> person/people
                 </p>
                 <button type="submit" class="formSubmit">Calculate</button>
             </form>
         </div>
+        <div id="totalTip">
+            Total Tip:
+            $<span id="tip">0.00</span>
+            <span id="eachPerson">each</span>
+        </div>
     </div>
+    <script type="text/javascript">
+        function calculateTip (event) {
+            event.preventDefault(); // to make the page don't load after submit event
+            let bill = document.getElementById('bill').value;
+            let serviceQuality = document.getElementById('serviceQuality').value;
+            let numOfPeople = document.getElementById('people').value;
+            
+            if(bill == '' | serviceQuality == 0){
+                alert("Please, fill the values")
+                return;
+            } 
+
+            if(numOfPeople == "" | numOfPeople <= 1) {
+                numOfPeople = 1;
+                document.getElementById('eachPerson').style.display = "none"
+            } else {
+                document.getElementById('eachPerson').style.display = "block"
+            }
+
+            let total = (bill * serviceQuality) / numOfPeople;
+            total = total.toFixed(2); // to limit the decimal
+            document.getElementById('tip').innerHTML = total;
+            document.getElementById('totalTip').style.display = "block";
+        }
+        // making result tip don't appearing
+        document.getElementById('totalTip').style.display = "none";
+        document.getElementById('eachPerson').style.display = "none";
+        // adding submit event
+        document.getElementById('tipsForm').addEventListener('submit', calculateTip);
+    </script>
 </body>
 </html>
